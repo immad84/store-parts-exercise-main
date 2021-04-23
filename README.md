@@ -1,12 +1,12 @@
 # store-parts-exercise-main
  
-Download this repository and save in your preffered location. 
-Open the folder in your fav IDE. I was using VS Code.
-open the Terminal in mac or Command Line Tool in windows. 
-Go to the Directory where your file is located. if you are using vs code there is an integrated terminal. once you open it you will be in the your project directory.
-type cd backend. 
-type npm run start
-this will start the server
-now open another terminal and repeat step 6. 
-type cd frontend
-type npm start.
+1. Download this repository and save in your preffered location. 
+2. open the Terminal.
+3. Go to the Directory of the project e.g if the file is located on desktop type cd desktop/name_of_the_file in the terminal
+4. type cd backend. 
+5. type npm run start
+6. this will start the server
+7. now open new terminal window and repeat step 3. 
+8. type cd frontend
+9. type npm install.
+10. type npm start
