@@ -14,7 +14,9 @@ function App() {
   let id = 0;
   const [arrangeDir, setArrangeDir] = useState('asc');
   const [Parts, setParts] = useState([]);
+  const [query, setQuery] = useState('');
   const [selectValue, setSelectValue] = useState('');
+  let filteredArray;
 
   useEffect(() => {
     fetch('http://localhost:8081/store/parts')
@@ -27,22 +29,39 @@ function App() {
       })
   },[]);
 
-  let partsArray = Parts.map(item => {
+  Parts.map(item => {
     item.id = id;
     id += 1;
     return item;
   });
 
+  filteredArray = Parts;
+
   function orderByPrice() {
-    partsArray = partsArray.sort((a,b) => {
+    filteredArray = filteredArray.sort((a,b) => {
       if(arrangeDir === 'asc') {
         return parseFloat(a.price) - parseFloat(b.price);
       }
       else if (arrangeDir === 'des') {
         return parseFloat(b.price) - parseFloat(a.price);
       }
+      return 0;
+    }).filter(item => {
+      return (
+        item.name.toLowerCase().includes(query.toLowerCase()) ||
+        item.type.toLowerCase().includes(query.toLowerCase()) ||
+        item.price.toLowerCase().includes(query.toLowerCase())
+      );
     })
-    setParts(partsArray);
+  }
+
+  orderByPrice();
+
+  function search(query) {
+    setQuery(query);
+  }
+
+  function dir() {
     if(arrangeDir === 'asc') {
       setArrangeDir('des');
     } else 
@@ -51,20 +70,9 @@ function App() {
     }
   }
 
-  function search(query) {
-    let filteredArray = partsArray.filter(item => {
-      return (
-        item.name.toLowerCase().includes(query.toLowerCase()) ||
-        item.type.toLowerCase().includes(query.toLowerCase()) ||
-        item.type.toLowerCase().includes(query.toLowerCase())
-      );
-    })
-    setParts(filteredArray)
-  }
 
   function setValue(value) {
     setSelectValue(value);
-    console.log(value)
   }
 
 
@@ -72,8 +80,8 @@ function App() {
     <Router>
       <main className="container mt-5">
         <Route path="/" exact>
-          <Search orderByPrice = {orderByPrice} search = {search} setValue = {setValue} />
-          <ListParts partsList = {partsArray} />
+          <Search dir = {dir} search = {search} setValue = {setValue} />
+          <ListParts partsList = {filteredArray} />
         </Route>
         <Route path="/parts">
           <Part selectValue={selectValue} />

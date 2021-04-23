@@ -3,27 +3,6 @@ import { Link } from 'react-router-dom';
 
 
 function Search(props){
-  // return (
-  //   <form className="d-flex justify-content-between mb-4">
-  //     <div>
-  //       <input type="text" placeholder="Search" className="search p-2" 
-  //       onChange={e => props.search(e.target.value)} />
-  //       <span className="icon"><FaSearch /></span>
-  //     </div>
-  //     <select className="select w-25 p-2">
-  //       <option>Select the Part</option>
-  //       <option value="mouse" onClick={(e) => props.setValue()}>Mouse</option>
-  //       <option value="mousepad">MousePad</option>
-  //       <option value="keyboard">Keyboard</option>
-  //       <option value="monitor">Monitor</option>
-  //     </select>
-  //     <button className="bg-white w-25" onClick={(e) => {
-  //       e.preventDefault();
-  //       props.orderByPrice();
-  //     }}
-  //       >Order By Price<span></span></button>
-  //   </form>
-  // );
   return (
     <div className="row justify-content-center my-4">
       <div className="col-md-6">
@@ -31,14 +10,15 @@ function Search(props){
           <input
             id="Search"
             type="text"
-            className="form-control"
+            className="form-control mr-5"
             aria-label="Search " 
+            placeholder="Search"
             onChange={e => props.search(e.target.value)}
           />
           <div className="input-group-append">
             <button
               type="button"
-              className="btn btn-primary dropdown-toggle"
+              className="btn border dropdown-toggle"
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
@@ -61,6 +41,9 @@ function Search(props){
               </button>
             </div>
           </div>
+          <button className="form-control ml-5" onClick={(e) => {props.dir()}} >
+            Order By Price
+          </button>
         </div>
       </div>
     </div>
