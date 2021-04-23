@@ -1,0 +1,23 @@
+div .inner {
+  background-color: slategrey;
+  color: #fff;
+}
+div .inner:nth-child(even) {
+  background-color: lightgray;
+  color: #000;
+}
+
+.icon {
+  position: absolute;
+  left: 320px;
+  top: 3em;
+  z-index: 100;
+  padding: 10px;
+  background-color: slategrey;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+button {
+  /* text-align: left; */
+}
