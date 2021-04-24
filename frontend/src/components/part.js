@@ -1,25 +1,22 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
 function Part(prop) {
   const [parts, setPart] = useState([]);
-  const isMountedVal = useRef(1);
   let id = 0;
   let value = prop.selectValue;
 
   useEffect(() => {
-    isMountedVal.current = 1;
     fetch(`http://localhost:8081/store/parts?type=${value}`)
       .then(response => response.json())
       .then(result => {
         const list = result.map(item => {
           return item;
-        })
-        setPart(list);
       })
-      return () => {isMountedVal.current = 0;};
-    });
+      setPart(list);
+    })
+  },[value]);
 
   let partList = parts.map(item => {
     item.id = id;

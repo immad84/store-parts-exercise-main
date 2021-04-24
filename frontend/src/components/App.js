@@ -27,6 +27,7 @@ function App() {
         })
         setParts(list);
       })
+      return () => console.log('App component unmount')
   },[]);
 
   Parts.map(item => {
