@@ -13,7 +13,7 @@
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the frontend sub-directory of the store-parts, you can run:
 
 ### `npm install`
 
