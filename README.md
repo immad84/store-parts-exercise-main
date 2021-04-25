@@ -8,8 +8,9 @@
 6. This will start the server
 7. Now open new terminal window and repeat step 3. 
 8. Type cd frontend
-9. Type npm install.
+9. Type npm install. This will install all the dependencies and takes some time. After the installation run the following command.
 10. Type npm start
+11. Open http://localhost:3000 to view it in the browser.
 
 ## Available Scripts
 
