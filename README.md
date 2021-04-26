@@ -1,6 +1,6 @@
 # store-parts-exercise-main
  
-1. Download this repository and save in your preffered location. 
+1. Download this repository and save in your prefered location. 
 2. open the Terminal.
 3. Go to the Directory of the project e.g if the repo folder is located on desktop type cd desktop/name_of_the_file in the terminal
 4. Once you are in the repo folder. Type cd backend. 
